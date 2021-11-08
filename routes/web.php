@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Auth::routes();
+# Ruta de Perfil
+Route::get('/profile', function () {
+    return view('auth.profile');
+})->middleware('auth');
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
