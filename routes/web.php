@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UpdateProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Auth::routes();
 # Ruta de Perfil
+
 Route::get('/profile', function () {
     return view('auth.profile');
 })->middleware('auth');
 
+Route::put('/profile/{user}', [UpdateProfile::class, 'update'])->middleware('auth');
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
