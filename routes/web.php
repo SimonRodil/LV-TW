@@ -21,10 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 # Ruta de Perfil
 
-Route::get('/profile', function () {
-    return view('auth.profile');
-})->middleware('auth');
+Route::get('/profile', [UpdateProfile::class, 'index'])->name('profile.update');
+Route::put('/profile/{user}', [UpdateProfile::class, 'update']);
 
-Route::put('/profile/{user}', [UpdateProfile::class, 'update'])->middleware('auth');
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
