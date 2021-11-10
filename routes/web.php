@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UpdateProfile;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 # Ruta de Perfil
 
-Route::get('/profile', [UpdateProfile::class, 'index'])->name('profile.update');
-Route::put('/profile/{user}', [UpdateProfile::class, 'update']);
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.update');
+Route::put('/profile/{user}', [ProfileController::class, 'update']);
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

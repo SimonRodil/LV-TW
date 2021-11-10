@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 
-class UpdateProfile extends Controller
+class ProfileController extends Controller
 {
 
     public function __construct() {
