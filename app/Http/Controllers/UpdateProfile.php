@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class UpdateProfile extends Controller
@@ -15,16 +16,29 @@ class UpdateProfile extends Controller
     //
     public function update(User $user){
 
-        $validate = request()->validate([
+        $query = request()->validate([
             'name' => 'required',
-            'email' => ['required', 'email']
+            'email' => 'required|email',
+            'password' => 'nullable|same:password_confirmation|min:8'
         ]);
 
-        $process = $user->update([
+        /* if(!empty($query['password'])):
+            
+            $user->password = Hash::make($query['password']);
+            $user->save();
+
+        endif; */
+
+        /* $user->update([
             'name' => request()->name,
             'email' => request()->email,
-        ]);
+        ]); */
 
-        return ($validate);
+        # Check if there is a new password and Save it, otherwise just save the one already based in database.
+        $query['password'] = (!empty($query['password']) ? Hash::make($query['password']) : $user->password);
+
+        $user->update($query);
+
+        return redirect('/profile');
     }
 }

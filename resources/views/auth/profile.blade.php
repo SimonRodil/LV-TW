@@ -52,8 +52,7 @@
                         </label>
 
                         <input id="password" type="password"
-                            class="bg-gray-50 form-input w-full @error('password') border-red-500 @enderror" name="password"
-                            required autocomplete="new-password">
+                            class="bg-gray-50 form-input w-full @error('password') border-red-500 @enderror" name="password">
 
                         @error('password')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -68,13 +67,13 @@
                         </label>
 
                         <input id="password-confirm" type="password" class="bg-gray-50 form-input w-full"
-                            name="password_confirmation" required autocomplete="new-password">
+                            name="password_confirmation">
                     </div>
 
                     <div class="flex flex-wrap">
                         <button type="submit"
                             class="w-full select-none mb-8 font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
-                            {{ __('Update') }}
+                            {{ __('Save Changes') }}
                         </button>
                     </div>
                 </form>
