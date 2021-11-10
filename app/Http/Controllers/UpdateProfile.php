@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UpdateProfile extends Controller
 {
 
-    public function __innit() {
+    public function __construct() {
         $this->middleware('auth');
     }
 
