@@ -40,4 +40,12 @@ class ProfileController extends Controller
         # Return.
         return redirect('/profile');
     }
+
+    //
+    public function logout(){
+
+        Auth::logout();
+        return redirect('/');
+
+    }
 }

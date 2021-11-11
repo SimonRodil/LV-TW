@@ -19,8 +19,11 @@ Route::get('/', function () {
 })->name('home');
 
 Auth::routes();
-# Ruta de Perfil
 
+# Logout by get
+Route::get('/logout', [ProfileController::class, 'logout'])->name('logout.auth');
+
+# Ruta de Perfil
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.update');
 Route::put('/profile/{user}', [ProfileController::class, 'update']);
 
