@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -24,12 +25,14 @@ class ProfileController extends Controller
         # Valid the fields.
         $query = request()->validate([
             'name' => 'required',
+            'username' => 'nullable',
             'email' => 'required|email',
             'password' => 'nullable|same:password_confirmation|min:8'
         ]);
 
         # Check if there is a new password and Save it, otherwise just save the one already based in database.
         $query['password'] = (!empty($query['password']) ? Hash::make($query['password']) : $user->password);
+        $query['username'] = (empty($query['username']) ? $user->username : request()->username);
 
         # Proceed to update.
         $user->update($query);

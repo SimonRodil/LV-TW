@@ -18,7 +18,7 @@
                             {{ __('E-Mail Address') }}:
                         </label>
 
-                        <input id="email" type="email"
+                        <input id="email" type="text"
                             class="form-input w-full @error('email') border-red-500 @enderror" name="email"
                             value="{{ old('email') }}" required autocomplete="email" autofocus>
 
