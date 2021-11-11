@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
@@ -27,4 +28,7 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile.updat
 Route::put('/profile/{user}', [ProfileController::class, 'update']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+# Ruta de los articulos
+Route::get('/articles', [ArticlesController::class, 'index'])->name('articles.index');
 
