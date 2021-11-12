@@ -68,3 +68,6 @@
   
   @yield('content')
   </main>
+
+@yield('scripts')
+  </html>

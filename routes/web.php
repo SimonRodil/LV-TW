@@ -31,4 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 # Ruta de los articulos
 Route::get('/articles', [ArticlesController::class, 'index'])->name('articles.index');
+Route::get('/articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
+Route::get('/articles/create', [ArticlesController::class, 'create'])->name('articles.create');
+Route::post('/articles/create', [ArticlesController::class, 'store'])->name('articles.store');
 
